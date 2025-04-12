@@ -1,1 +1,3 @@
-<?php echo "Bot activo!!:)"; ?>
+<?php echo "Bot activo!!:)"; 
+require 'bot.php';
+?>
