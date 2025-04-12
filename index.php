@@ -16,7 +16,7 @@ if (isset($update["message"])) {
     $chatId = $message["chat"]["id"] ?? null;
 
     // Tu token (reemplázalo por el real)
-    $botToken = "AQUÍ_VA_TU_TOKEN";
+    $botToken = "7776030722:AAHUbx6JV6IznfRW7IaqulfixvrKd5cxISo";
 
     if ($chatId) {
         switch (strtolower($text)) {
