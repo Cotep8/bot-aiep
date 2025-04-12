@@ -1,4 +1,4 @@
-FROM php:8.4.0RC1-apache-slim
+FROM php:8.2-apache
 COPY . /var/www/html/
 RUN docker-php-ext-install curl
 EXPOSE 80
