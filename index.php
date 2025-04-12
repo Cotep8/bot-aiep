@@ -86,11 +86,14 @@ function sendMessage($chatId, $message, $botToken) {
     ];
 
     $context  = stream_context_create($options);
-    $result = file_get_contents($url, false, $context);
+    $result = @file_get_contents($url, false, $context);
 
-    // Registrar error si falla el envío
-    if ($result === FALSE) {
-        error_log("Error al enviar mensaje a Telegram");
-    }
+if ($result === FALSE) {
+    $error = error_get_last();
+    error_log("Error al enviar mensaje a Telegram: " . $error['message']);
+} else {
+    error_log("Telegram respondió: " . $result);
+}
+
 }
 ?>
