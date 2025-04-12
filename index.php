@@ -3,19 +3,18 @@
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
-// Verifica si es una solicitud POST válida
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo "Este script está diseñado para recibir actualizaciones POST desde Telegram.";
     exit;
 }
 
-// Validar que se recibió un mensaje
+
 if (isset($update["message"])) {
     $message = $update["message"];
     $text = $message["text"] ?? '';
     $chatId = $message["chat"]["id"] ?? null;
 
-    // Tu token (reemplázalo por el real)
     $botToken = "7776030722:AAHUbx6JV6IznfRW7IaqulfixvrKd5cxISo";
 
     if ($chatId) {
@@ -53,7 +52,7 @@ if (isset($update["message"])) {
                 break;
 
             default:
-                $response = 'Perdón, no entiendo la pregunta.';
+                $response = 'Perdón, no entiendo.';
                 break;
         }
 
@@ -67,7 +66,7 @@ if (isset($update["message"])) {
 }
 
 
-// Función para enviar mensaje al usuario
+
 function sendMessage($chatId, $message, $botToken) {
     $url = "https://api.telegram.org/bot$botToken/sendMessage";
 
